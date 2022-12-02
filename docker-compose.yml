@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  reverse-proxy:
+    container_name: reverse-proxy
+    build: ./reverse-proxy
+    ports:
+      - 80:80
+    depends_on:
+      - admin
+      - portal
+
+  admin:
+    container_name: admin
+    build: ./admin
+
+  portal:
+    container_name: portal
+    build: ./portal
